@@ -18,6 +18,8 @@ DOCKER_GID=$(stat -c '%g' ${DOCKER_SOCKET})
 # make sure that the docker group does not exist
 if [ $(getent group ${DOCKER_GROUP}) ]; then
   echo "Group '${DOCKER_GROUP}' found. No need to create it."
+  # run jenkins
+  /sbin/tini -- /usr/local/bin/jenkins.sh
 else
   # try to create a new group with GID=DOCKER_GID
   sudo groupadd --system --gid ${DOCKER_GID} ${DOCKER_GROUP}
@@ -25,8 +27,5 @@ else
     exit
   fi
   sudo usermod -a -G ${DOCKER_GROUP} `whoami`
-  sudo su - `whoami`
+  sudo -Eu jenkins /sbin/tini -- /usr/local/bin/jenkins.sh
 fi
-
-# run jenkins
-/sbin/tini -- /usr/local/bin/jenkins.sh

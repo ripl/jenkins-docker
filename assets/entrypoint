@@ -25,6 +25,7 @@ else
     exit
   fi
   sudo usermod -a -G ${DOCKER_GROUP} `whoami`
+  sudo su - `whoami`
 fi
 
 # run jenkins

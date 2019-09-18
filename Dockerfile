@@ -12,6 +12,7 @@ USER root
 RUN apt update \
   && apt install -y \
     sudo \
+    make \
   && rm -rf /var/lib/apt/lists/*
 
 # install docker binaries

@@ -1,5 +1,5 @@
-# As of March 2019, Jenkins 2.150.3 is the LTS version
-FROM jenkins/jenkins:2.150.3
+# As of February 2021, Jenkins 2.263.4 is the LTS version
+FROM jenkins/jenkins:2.263.4
 
 # define arguments
 ARG DOCKER_DOWNLOAD_URL="https://download.docker.com/linux/static/stable"

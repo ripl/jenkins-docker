@@ -1,5 +1,5 @@
-# As of February 2021, Jenkins 2.263.4 is the LTS version
-FROM jenkins/jenkins:2.263.4
+# As of January 2022, Jenkins 2.319.2 is the LTS version
+FROM jenkins/jenkins:2.319.2
 
 # define arguments
 ARG DOCKER_DOWNLOAD_URL="https://download.docker.com/linux/static/stable"
@@ -13,6 +13,7 @@ RUN apt update \
   && apt install -y \
     sudo \
     make \
+    wget \
   && rm -rf /var/lib/apt/lists/*
 
 # install docker binaries

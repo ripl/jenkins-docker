@@ -31,6 +31,16 @@ RUN cd /tmp \
     docker \
     docker-bin.tgz
 
+# install libraries
+RUN apt update \
+  && apt install -y \
+    python3 \
+    python3-pip \
+  && rm -rf /var/lib/apt/lists/*
+
+# install cpk and rretry
+RUN pip3 install -U cpk>=0.4.3 run-and-retry
+
 # give the jenkins user the power to create groups
 RUN echo 'jenkins ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers.d/jenkins_no_password
 

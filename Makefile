@@ -1,5 +1,5 @@
 build:
-	docker build -t afdaniele/jenkins ./
+	docker build -t ripl/jenkins ./
 
 push:
-	docker push afdaniele/jenkins
+	docker push ripl/jenkins

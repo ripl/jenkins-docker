@@ -12,13 +12,13 @@ pipeline {
     BUILD_IMAGE_LATEST = "ripl/jenkins:latest"
   }
   stages {
-    //stage('Compile Stage') {
-    //    steps {
-    //        checkout scmGit(userRemoteConfigs: [
-    //                [ url: 'https://github.com/ripl/jenkins-docker.git' ]
-    //            ])
-    //    }
-    //}
+    stage('Compile Stage') {
+       steps {
+           checkout scmGit(userRemoteConfigs: [
+                   [ url: ${GIT_URL} ]
+               ])
+       }
+    }
     stage('Update Base Image') {
       steps {
         sh 'docker pull $BASE_IMAGE_LATEST'

@@ -15,7 +15,7 @@ pipeline {
     stage('Compile Stage') {
        steps {
            checkout scmGit(userRemoteConfigs: [
-                   [ url: ${GIT_URL} ]
+                   [ url: 'https://github.com/ripl/jenkins-docker.git' ]
                ])
        }
     }

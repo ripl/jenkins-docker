@@ -2,7 +2,8 @@ name: jenkins
 on: [push]
 
 jobs: 
-  test:
+  webhook:
+    runs-on: ubuntu-latest
     steps:
       - name: ZeroTier
         uses: zerotier/github-action@v1.0.1

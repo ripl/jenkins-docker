@@ -11,6 +11,9 @@ pipeline {
     BASE_IMAGE_LATEST = "jenkins/jenkins:lts"
     BUILD_IMAGE_LATEST = "ripl/jenkins:latest"
   }
+  triggers {
+    githubPush()
+  }
   stages {
     stage('Update Base Image') {
       steps {
